@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\Skeleton\Models;
+namespace TallAndSassy\GrokJetUi\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SkeletonModel extends Model
+class GrokJetUiModel extends Model
 {
     public $gaurded = [];// Defualt to no mass assignements
     public $fillable = ['name'];
-    public $table = 'skeleton';
+    public $table = 'grok-jet-ui';
 
     public function getUpperCasedName() : string
     {

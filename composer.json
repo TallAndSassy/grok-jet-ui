@@ -1,11 +1,11 @@
 {
-    "name": "spatie/skeleton",
-    "description": "package_description",
+    "name": "tallandsassy/grok-jet-ui",
+    "description": "",
     "keywords": [
-        "vendor_name",
-        "package_name"
+        "tallandsassy",
+        "grok-jet-ui"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/:tallandsassy/:grok-jet-ui",
     "license": "MIT",
     "authors": [
         {
@@ -28,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "TallAndSassy\\GrokJetUi\\": "src",
+            "TallAndSassy\\GrokJetUi\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "TallAndSassy\\GrokJetUi\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "TallAndSassy\\GrokJetUi\\GrokJetUiServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "GrokJetUi": "TallAndSassy\\GrokJetUi\\GrokJetUiFacade"
             }
         }
     },
@@ -61,8 +61,8 @@
 
     "repositories": [
          {
-            "type": "github",
-            "url": "https://github.com/ElegantTechnologies/grok"
+            "type": "path",
+            "url": "../grok-jet-ui"
         }
     ]
 

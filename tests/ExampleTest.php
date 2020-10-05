@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace TallAndSassy\GrokJetUi\Tests;
 
 class ExampleTest extends TestCase
 {

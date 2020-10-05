@@ -1,33 +1,33 @@
 <?php
 
-namespace Spatie\Skeleton;
+namespace TallAndSassy\GrokJetUi;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Skeleton\Commands\SkeletonCommand;
-use Spatie\Skeleton\Http\Controllers\SkeletonController;
+use TallAndSassy\GrokJetUi\Commands\GrokJetUiCommand;
+use TallAndSassy\GrokJetUi\Http\Controllers\GrokJetUiController;
 
-class SkeletonServiceProvider extends ServiceProvider
+class GrokJetUiServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
-                    __DIR__ . '/../config/skeleton.php' => config_path('skeleton.php'),
+                    __DIR__ . '/../config/grok-jet-ui.php' => config_path('grok-jet-ui.php'),
                 ],
                 'config'
             );
 
             $this->publishes(
                 [
-                    __DIR__ . '/../resources/views' => base_path('resources/views/vendor/skeleton'),
+                    __DIR__ . '/../resources/views' => base_path('resources/views/vendor/grok-jet-ui'),
                 ],
                 'views'
             );
 
-            $migrationFileName = 'create_skeleton_table.php';
+            $migrationFileName = 'create_grok_jet_ui_table.php';
             if (! $this->migrationFileExists($migrationFileName)) {
                 $this->publishes(
                     [
@@ -39,18 +39,18 @@ class SkeletonServiceProvider extends ServiceProvider
                 );
             }
 
-             $this->publishes([
+            $this->publishes([
                  __DIR__.'/../resources/public' => public_path('eleganttechnologies/grok'),
                 ], ['public']);
 
             // Publishing assets.
             /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('spatie/skeleton'),
+                __DIR__.'/../resources/assets' => public_path('tallandsassy/grok-jet-ui'),
             ], 'grok.views');*/
 
             // Publishing the translation files.
             /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/spatie/skeleton'),
+                __DIR__.'/../resources/lang' => resource_path('lang/tallandsassy/grok-jet-ui'),
             ], 'grok.views');*/
 
 
@@ -58,16 +58,16 @@ class SkeletonServiceProvider extends ServiceProvider
             // Registering package commands.
             $this->commands(
                 [
-                    SkeletonCommand::class,
+                    GrokJetUiCommand::class,
                 ]
             );
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'bladeprefix');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tassygrokjetui');
 
 
         Route::macro(
-            'bladeprefix',
+            'tassygrokjetui',
             function (string $prefix) {
                 Route::prefix($prefix)->group(
                     function () {
@@ -76,24 +76,24 @@ class SkeletonServiceProvider extends ServiceProvider
                         if (App::environment(['local', 'testing'])) {
                             // prefixed url to string
                             Route::get(
-                                '/Spatie/Skeleton/string', // you will absolutely need a prefix in your url
+                                '/TallAndSassy/GrokJetUi/string', // you will absolutely need a prefix in your url
                                 function () {
-                                    return "Hello Skeleton string via blade prefix";
+                                    return "Hello GrokJetUi string via blade prefix";
                                 }
                             );
 
                             // prefixed url to blade view
                             Route::get(
-                                '/Spatie/Skeleton/test_blade',
+                                '/TallAndSassy/GrokJetUi/test_blade',
                                 function () {
-                                    return view('bladeprefix::test_blade');
+                                    return view('tassygrokjetui::test_blade');
                                 }
                             );
 
                             // prefixed url to controller
                             Route::get(
-                                '/Spatie/Skeleton/controller',
-                                [SkeletonController::class, 'sample']
+                                '/TallAndSassy/GrokJetUi/controller',
+                                [GrokJetUiController::class, 'sample']
                             );
                         }
                         // Prefix Route Samples -END-
@@ -103,31 +103,31 @@ class SkeletonServiceProvider extends ServiceProvider
                 );
             }
         );
-        Route::bladeprefix('bladeprefix'); // This works. http://test-jet.test/bladeprefix/Spatie/Skeleton/string
-        // They are addatiive, so in your own routes/web.php file, do Route::bladeprefix('staff'); to
-        // make http://test-jet.test/staff/Spatie/Skeleton/string work
+        Route::tassygrokjetui('tassygrokjetui'); // This works. http://test-jet.test/tassy/TallAndSassy/GrokJetUi/string
+        // They are addatiive, so in your own routes/web.php file, do Route::tassy('staff'); to
+        // make http://test-jet.test/staff/TallAndSassy/GrokJetUi/string work
 
 
         // global url samples -BEGIN-
         if (App::environment(['local', 'testing'])) {
             // global url to string
             Route::get(
-                '/grok/Spatie/Skeleton/string',
+                '/grok/TallAndSassy/GrokJetUi/string',
                 function () {
-                    return "Hello Skeleton string via global url.";
+                    return "Hello GrokJetUi string via global url.";
                 }
             );
 
             // global url to blade view
             Route::get(
-                '/grok/Spatie/Skeleton/test_blade',
+                '/grok/TallAndSassy/GrokJetUi/test_blade',
                 function () {
-                    return view('bladeprefix::test_blade');
+                    return view('tassygrokjetui::test_blade');
                 }
             );
 
             // global url to controller
-            Route::get('/grok/Spatie/Skeleton/controller', [SkeletonController::class, 'sample']);
+            Route::get('/grok/TallAndSassy/GrokJetUi/controller', [GrokJetUiController::class, 'sample']);
         }
         // global url samples -END-
 
@@ -135,15 +135,15 @@ class SkeletonServiceProvider extends ServiceProvider
 
         // GROK
         if (App::environment(['local', 'testing'])) {
-            \ElegantTechnologies\Grok\GrokWrangler::grokMe(static::class, 'Spatie', 'skeleton', 'resources/views/grok');
-            Route::get('/grok/Spatie/Skeleton', fn () => view('bladeprefix::grok/index'));
+            \ElegantTechnologies\Grok\GrokWrangler::grokMe(static::class, 'TallAndSassy', 'grok-jet-ui', 'resources/views/grok', 'tassygrokjetui');
+            #Route::get('/grok/TallAndSassy/GrokJetUi', fn () => view('tassy::grok/index'));
         }
         // TODO: Add your own other boot related stuff here...
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/skeleton.php', 'skeleton');
+        $this->mergeConfigFrom(__DIR__ . '/../config/grok-jet-ui.php', 'grok-jet-ui');
     }
 
     public static function migrationFileExists(string $migrationFileName): bool
