@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "illuminate/contracts": "^8.0"
     },
     "require-dev": {
@@ -63,6 +63,10 @@
          {
             "type": "path",
             "url": "../grok-jet-ui"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ElegantTechnologies/grok.git"
         }
     ]
 
